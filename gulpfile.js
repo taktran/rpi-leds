@@ -6,7 +6,7 @@ var jasmine = require('gulp-jasmine');
 
 var FILES = {
   js: [
-    'lib/',
+    'lib/*.js',
     'index.js'
   ],
   test: 'test/*.spec.js'
