@@ -9,6 +9,10 @@ Install pre-requisites
     npm install -g gulp
     npm install
 
+For development, run
+
+    gulp
+
 ## Testing
 
 Uses [jasmine](pivotal.github.com/jasmine/).
