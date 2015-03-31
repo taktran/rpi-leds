@@ -1,32 +1,78 @@
 "use strict";
 
-var RpiLeds = require('../');
-var leds;
+var proxyquire = require('proxyquire');
+var sinon = require('sinon');
+
+var leds, execStub;
 
 describe('rpiLeds', function() {
   beforeEach(function() {
-    // Use debug flag to only show command, and
-    // not run it
-    leds = new RpiLeds({
-      debug: true
+    // Stub, so commands aren't executed
+    execStub = sinon.spy();
+    var RpiLeds = proxyquire('../lib/rpiLeds', {
+      'sync-exec': execStub
     });
+
+    leds = new RpiLeds();
   });
 
-  it('runs initialisation', function() {
-    // expect(leds).toContain('echo gpio | sudo tee /sys/class/leds/led0/trigger');
-    // expect(leds).toContain('echo gpio | sudo tee /sys/class/leds/led1/trigger');
+  it('runs initialisation with led0', function() {
+    expect(execStub.calledWithMatch('echo gpio | sudo tee /sys/class/leds/led0/trigger')).toBeTruthy();
   });
 
-  describe('.power', function() {
+  it('runs initialisation with led1', function() {
+    expect(execStub.calledWithMatch('echo gpio | sudo tee /sys/class/leds/led1/trigger')).toBeTruthy();
+  });
+
+  describe('power', function() {
     it('exists', function() {
       expect(leds.power).toBeTruthy();
     });
 
-    describe('.turnOn()', function() {
-      it('returns set brightness command', function() {
-        expect(leds.power.turnOn()).toEqual('echo 1 | sudo tee /sys/class/leds/led1/brightness');
+    describe('turnOn()', function() {
+      beforeEach(function() {
+        leds.power.turnOn();
       });
 
+      it('sets brightness command', function() {
+        expect(execStub.calledWithMatch('echo 1 | sudo tee /sys/class/leds/led1/brightness')).toBeTruthy();
+      });
+    });
+
+    describe('.turnOff()', function() {
+      beforeEach(function() {
+        leds.power.turnOff();
+      });
+
+      it('sets brightness command', function() {
+        expect(execStub.calledWithMatch('echo 0 | sudo tee /sys/class/leds/led1/brightness')).toBeTruthy();
+      });
+    });
+  });
+
+  describe('status', function() {
+    it('exists', function() {
+      expect(leds.status).toBeTruthy();
+    });
+
+    describe('turnOn()', function() {
+      beforeEach(function() {
+        leds.status.turnOn();
+      });
+
+      it('sets brightness command', function() {
+        expect(execStub.calledWithMatch('echo 1 | sudo tee /sys/class/leds/led0/brightness')).toBeTruthy();
+      });
+    });
+
+    describe('.turnOff()', function() {
+      beforeEach(function() {
+        leds.status.turnOff();
+      });
+
+      it('sets brightness command', function() {
+        expect(execStub.calledWithMatch('echo 0 | sudo tee /sys/class/leds/led0/brightness')).toBeTruthy();
+      });
     });
   });
 });
