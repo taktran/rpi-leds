@@ -2,7 +2,7 @@
 
 Node.js library to control Raspberry Pi onboard LEDs.
 
-Currently only tested on the raspberry pi 2.
+Currently only tested on the Raspberry Pi 2.
 
 ## Usage
 
