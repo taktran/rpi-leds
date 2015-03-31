@@ -24,7 +24,7 @@ gulp.task('test', function(done) {
     .pipe(jasmine());
 });
 
-gulp.task('watch', function(done) {
+gulp.task('watch', [ 'jshint', 'test' ], function(done) {
   return gulp.watch(FILES.allJS, [
     'jshint',
     'test'
