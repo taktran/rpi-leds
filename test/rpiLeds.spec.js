@@ -24,6 +24,17 @@ describe('rpiLeds', function() {
     expect(execStub.calledWithMatch('echo gpio | sudo tee /sys/class/leds/led1/trigger')).toBeTruthy();
   });
 
+  describe('reset', function() {
+    beforeEach(function() {
+      leds.reset();
+    });
+
+    it('resets both LEDs', function() {
+      expect(execStub.calledWithMatch('echo input | sudo tee /sys/class/leds/led1/trigger')).toBeTruthy();
+      expect(execStub.calledWithMatch('echo mmc0 | sudo tee /sys/class/leds/led0/trigger')).toBeTruthy();
+    });
+  });
+
   describe('power', function() {
     it('exists', function() {
       expect(leds.power).toBeTruthy();
@@ -66,6 +77,16 @@ describe('rpiLeds', function() {
 
       it('sets trigger', function() {
         expect(execStub.calledWithMatch('echo timer | sudo tee /sys/class/leds/led1/trigger')).toBeTruthy();
+      });
+    });
+
+    describe('.reset()', function() {
+      beforeEach(function() {
+        leds.power.reset();
+      });
+
+      it('sets trigger to `input`', function() {
+        expect(execStub.calledWithMatch('echo input | sudo tee /sys/class/leds/led1/trigger')).toBeTruthy();
       });
     });
   });
@@ -112,6 +133,16 @@ describe('rpiLeds', function() {
 
       it('sets trigger', function() {
         expect(execStub.calledWithMatch('echo timer | sudo tee /sys/class/leds/led0/trigger')).toBeTruthy();
+      });
+    });
+
+    describe('.reset()', function() {
+      beforeEach(function() {
+        leds.status.reset();
+      });
+
+      it('sets trigger to `mmc0`', function() {
+        expect(execStub.calledWithMatch('echo mmc0 | sudo tee /sys/class/leds/led0/trigger')).toBeTruthy();
       });
     });
   });

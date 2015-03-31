@@ -41,6 +41,13 @@ Activate LED blinking
     leds.power.blink();
     leds.status.blink();
 
+Reset LEDs to original settings
+
+    leds.power.reset();  // Set trigger to `input`
+    leds.status.reset(); // Set trigger to `mmc0`
+
+    leds.reset();        // Resets both LEDs
+
 ## Development
 
 Install pre-requisites

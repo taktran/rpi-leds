@@ -4,6 +4,7 @@
 
 * Implement `heartbeat`
 * Implement `blink`
+* Add `reset`
 
 ## v0.0.2
 

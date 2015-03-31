@@ -1,6 +1,6 @@
 {
   "name": "rpi-leds",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Node.js library to control Raspberry Pi onboard LEDs",
   "main": "index.js",
   "scripts": {
