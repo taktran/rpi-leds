@@ -36,6 +36,11 @@ Activate LED heartbeats
     leds.power.heartbeat();
     leds.status.heartbeat();
 
+Activate LED blinking
+
+    leds.power.blink();
+    leds.status.blink();
+
 ## Development
 
 Install pre-requisites

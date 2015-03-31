@@ -58,6 +58,16 @@ describe('rpiLeds', function() {
         expect(execStub.calledWithMatch('echo heartbeat | sudo tee /sys/class/leds/led1/trigger')).toBeTruthy();
       });
     });
+
+    describe('.blink()', function() {
+      beforeEach(function() {
+        leds.power.blink();
+      });
+
+      it('sets trigger', function() {
+        expect(execStub.calledWithMatch('echo timer | sudo tee /sys/class/leds/led1/trigger')).toBeTruthy();
+      });
+    });
   });
 
   describe('status', function() {
@@ -92,6 +102,16 @@ describe('rpiLeds', function() {
 
       it('sets trigger', function() {
         expect(execStub.calledWithMatch('echo heartbeat | sudo tee /sys/class/leds/led0/trigger')).toBeTruthy();
+      });
+    });
+
+    describe('.blink()', function() {
+      beforeEach(function() {
+        leds.status.blink();
+      });
+
+      it('sets trigger', function() {
+        expect(execStub.calledWithMatch('echo timer | sudo tee /sys/class/leds/led0/trigger')).toBeTruthy();
       });
     });
   });

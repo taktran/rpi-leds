@@ -3,6 +3,7 @@
 ## v0.0.3
 
 * Implement `heartbeat`
+* Implement `blink`
 
 ## v0.0.2
 
