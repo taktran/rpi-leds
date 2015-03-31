@@ -1,1 +1,1 @@
-require('./lib/rpiLeds');
+module.exports = require('./lib/rpiLeds');
