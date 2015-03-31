@@ -16,6 +16,9 @@
     "led",
     "nodejs"
   ],
+  "engines": {
+    "node": ">=0.10.0"
+  },
   "author": "Tak Tran <contact@tutaktran.com>",
   "license": "MIT",
   "devDependencies": {
