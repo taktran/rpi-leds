@@ -1,0 +1,27 @@
+{
+  "name": "rpi-leds",
+  "version": "0.0.1",
+  "description": "Node.js library to control Raspberry Pi onboard LEDs",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:taktran/rpi-leds.git"
+  },
+  "keywords": [
+    "rpi",
+    "raspberry-pi",
+    "led",
+    "nodejs"
+  ],
+  "author": "Tak Tran <contact@tutaktran.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-jasmine": "^2.0.1",
+    "gulp-jshint": "^1.9.4",
+    "jshint-stylish": "^1.0.1"
+  }
+}

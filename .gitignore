@@ -1,0 +1,43 @@
+# Node.js
+lib-cov
+*.seed
+*.log
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+
+npm-debug.log
+/node_modules
+/dist
+/temp
+
+# SublimeText project files
+*.sublime-workspace
+
+# Textmate
+*.tmproj
+*.tmproject
+tmtags
+
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Sass
+.sass-cache
+
+# Config file
+app/public/config/config.js
