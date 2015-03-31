@@ -12,7 +12,7 @@ Install it
 
 Include it
 
-    var RpiLeds = require('../');
+    var RpiLeds = require('rpi-leds');
     var leds = new RpiLeds();
 
 ### Commands
