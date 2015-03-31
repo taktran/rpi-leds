@@ -1,4 +1,4 @@
-# rpi-leds
+# rpi-leds [![Circle CI](https://circleci.com/gh/taktran/rpi-leds.svg?style=svg)](https://circleci.com/gh/taktran/rpi-leds)
 
 Node.js library to control Raspberry Pi onboard LEDs
 
