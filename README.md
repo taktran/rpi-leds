@@ -31,6 +31,11 @@ Turn off LEDs
     leds.power.turnOff();
     leds.status.turnOff();
 
+Activate LED heartbeats
+
+    leds.power.heartbeat();
+    leds.status.heartbeat();
+
 ## Development
 
 Install pre-requisites

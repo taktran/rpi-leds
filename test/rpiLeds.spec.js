@@ -48,6 +48,16 @@ describe('rpiLeds', function() {
         expect(execStub.calledWithMatch('echo 0 | sudo tee /sys/class/leds/led1/brightness')).toBeTruthy();
       });
     });
+
+    describe('.heartbeat()', function() {
+      beforeEach(function() {
+        leds.power.heartbeat();
+      });
+
+      it('sets trigger', function() {
+        expect(execStub.calledWithMatch('echo heartbeat | sudo tee /sys/class/leds/led1/trigger')).toBeTruthy();
+      });
+    });
   });
 
   describe('status', function() {
@@ -72,6 +82,16 @@ describe('rpiLeds', function() {
 
       it('sets brightness command', function() {
         expect(execStub.calledWithMatch('echo 0 | sudo tee /sys/class/leds/led0/brightness')).toBeTruthy();
+      });
+    });
+
+    describe('.heartbeat()', function() {
+      beforeEach(function() {
+        leds.status.heartbeat();
+      });
+
+      it('sets trigger', function() {
+        expect(execStub.calledWithMatch('echo heartbeat | sudo tee /sys/class/leds/led0/trigger')).toBeTruthy();
       });
     });
   });
