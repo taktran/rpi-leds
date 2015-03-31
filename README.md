@@ -26,3 +26,7 @@ For continuous integration, run
     # Or,
 
     npm test
+
+## License
+
+MIT
