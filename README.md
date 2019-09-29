@@ -61,7 +61,7 @@ For development, run
 
 ## Testing
 
-Uses [jasmine](pivotal.github.com/jasmine/).
+Uses [jasmine](https://jasmine.github.io/).
 
 Jasmine is run automatically when `gulp` is called.
 
